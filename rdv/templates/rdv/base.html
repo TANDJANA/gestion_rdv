@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gestion RDV</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+
+        <a class="navbar-brand" href="/">Gestion RDV</a>
+
+        <div>
+            <a class="btn btn-outline-light me-2" href="/">Accueil</a>
+            <a class="btn btn-outline-light me-2" href="/rendezvous/">Ajouter</a>
+            <a class="btn btn-outline-light me-2" href="/rendezvous/liste/">Liste</a>
+            <a class="btn btn-danger" href="/logout/">Déconnexion</a>
+        </div>
+
+    </div>
+</nav>
+
+<!-- CONTENU -->
+<div class="container mt-4">
+    {% block content %}
+    {% endblock %}
+</div>
+
+</body>
+</html>
