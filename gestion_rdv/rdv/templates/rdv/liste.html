@@ -1,0 +1,47 @@
+{% extends 'rdv/base.html' %}
+
+{% block content %}
+
+<h2 class="text-center mb-4">Liste des rendez-vous</h2>
+
+<table class="table table-bordered table-striped shadow">
+    <thead class="table-dark">
+        <tr>
+            <th>Patient</th>
+            <th>Date</th>
+            <th>Heure</th>
+            <th>Médecin</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for rdv in rdvs %}
+        <tr>
+            <td>{{ rdv.patient }}</td>
+            <td>{{ rdv.date }}</td>
+            <td>{{ rdv.heure }}</td>
+            <td>
+            {% if rdv.medecin %}
+            {{ rdv.medecin.nom }}
+            {% else %}
+            Non défini
+            {% endif %}
+            </td>
+            <td>
+                <a href="/rendezvous/modifier/{{ rdv.id }}/" class="btn btn-warning btn-sm">Modifier</a>
+                <a href="/rendezvous/supprimer/{{ rdv.id }}/" class="btn btn-danger btn-sm"
+                   onclick="return confirm('Supprimer ce rendez-vous ?')">Supprimer</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="5" class="text-center">Aucun rendez-vous</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="/rendezvous/" class="btn btn-primary">Ajouter un rendez-vous</a>
+
+{% endblock %}
