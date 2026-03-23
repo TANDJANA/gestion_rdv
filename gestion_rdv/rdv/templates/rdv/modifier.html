@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Modifier un rendez-vous</title>
+</head>
+<body>
+
+<h2>Modifier le rendez-vous</h2>
+
+<form method="post">
+    {% csrf_token %}
+
+    <label>Nom du patient :</label>
+    <input type="text" name="patient" value="{{ rdv.patient }}"><br><br>
+
+    <label>Date :</label>
+    <input type="date" name="date" value="{{ rdv.date }}"><br><br>
+
+    <label>Heure :</label>
+    <input type="time" name="heure" value="{{ rdv.heure }}"><br><br>
+
+    <label>Médecin :</label>
+    <select name="medecin">
+        {% for medecin in medecins %}
+            <option value="{{ medecin.id }}"
+                {% if medecin.id == rdv.medecin.id %}selected{% endif %}>
+                Dr {{ medecin.nom }}
+            </option>
+        {% endfor %}
+    </select><br><br>
+
+    <button type="submit">Modifier</button>
+</form>
+
+</body>
+</html>
