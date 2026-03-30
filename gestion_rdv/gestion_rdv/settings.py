@@ -121,15 +121,6 @@ LOGIN_REDIRECT_URL = '/rendezvous/liste/'
 
 LOGIN_URL = '/login/'
 
-import os
-if os.environ.get("RENDER"):
-    from django.contrib.auth import get_user_model
-    User = get_user_model()
-    if not User.objects.filter(username="admin").exists():
-        User.objects.create_superuser(
-            "admin",
-            "admin@mail.com",
-            "admin1234"
-        )
+
 
 
