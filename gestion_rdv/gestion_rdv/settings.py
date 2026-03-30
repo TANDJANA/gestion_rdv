@@ -121,6 +121,12 @@ LOGIN_REDIRECT_URL = '/rendezvous/liste/'
 
 LOGIN_URL = '/login/'
 
+import os
+
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+
 
 
 
