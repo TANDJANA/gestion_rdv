@@ -50,12 +50,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'gestion_rdv.urls'
+ROOT_URLCONF = 'gestion_rdv.gestion_rdv.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'rdv' / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -67,7 +67,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'gestion_rdv.wsgi.application'
+WSGI_APPLICATION = 'gestion_rdv.gestion_rdv.wsgi.application'
 
 
 # Database
