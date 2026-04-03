@@ -19,10 +19,13 @@ class Medecin(models.Model):
 
 class RendezVous(models.Model):
     patient = models.CharField(max_length=100)
-    medecin = models.ForeignKey(Medecin, on_delete=models.CASCADE,null=True, blank=True)
+    medecin = models.ForeignKey(Medecin, on_delete=models.CASCADE, null=True, blank=True)
     date = models.DateField()
     heure = models.TimeField()
     statut = models.CharField(max_length=20, default="en attente")
 
+    class Meta:
+        unique_together = ('medecin', 'date', 'heure')
+
     def __str__(self):
-        return f"{self.patient} - {self.date}"
+        return f"{self.patient} - {self.date} {self.heure}"

@@ -5,11 +5,18 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    # Accueil
     path('', views.accueil, name='accueil'),
-    path('rendezvous/', views.ajouter_rdv, name='ajouter_rdv'),
-    path('rendezvous/liste/', views.liste_rdv, name='liste_rdv'),
-    path('rendezvous/modifier/<int:id>/', views.modifier_rdv, name='modifier_rdv'),
-    path('rendezvous/supprimer/<int:id>/', views.supprimer_rdv, name='supprimer_rdv'),
+
+    # PATIENT (sans login)
+    path('rendezvous/', views.prendre_rdv, name='prendre_rdv'),
+
+    # ADMIN (avec login)
+    path('dashboard/', views.dashboard, name='dashboard'),
+    path('rdv/liste/', views.liste_rdv, name='liste_rdv'),
+    path('rdv/modifier/<int:id>/', views.modifier_rdv, name='modifier_rdv'),
+    path('rdv/supprimer/<int:id>/', views.supprimer_rdv, name='supprimer_rdv'),
 
     # AUTH
     path('login/', auth_views.LoginView.as_view(template_name='rdv/login.html'), name='login'),
