@@ -58,7 +58,7 @@ ROOT_URLCONF = 'gestion_rdv.gestion_rdv.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'rdv' / 'templates'],
+        'DIRS': [BASE_DIR / 'rdv' / 'templates rdv'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
